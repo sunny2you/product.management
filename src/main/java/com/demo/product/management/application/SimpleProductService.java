@@ -57,6 +57,7 @@ public class SimpleProductService {
         Product product = modelMapper.map(productDto, Product.class);
         Product updatedproduct = listProductRepository.update(product);
         ProductDto savedProductDto = modelMapper.map(updatedproduct,ProductDto.class);
+        System.out.println(savedProductDto);
         return savedProductDto;
     }
 
