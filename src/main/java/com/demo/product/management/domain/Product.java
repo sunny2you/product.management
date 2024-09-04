@@ -1,14 +1,26 @@
 package com.demo.product.management.domain;
 
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Size;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.boot.convert.DataSizeUnit;
 
 import java.util.Objects;
 
 
 public class Product {
     private Long id;
+
+    @Size(min=1,max=100)
     private String name;
+
+    @Max(1_000_000)
+    @Min(0)
     private Integer price;
+
+    @Max(9_999)
+    @Min(0)
     private Integer amount;
 
     public void setId(Long id){
